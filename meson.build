@@ -1,9 +1,9 @@
-project ('practica 2 PAV deteccion vocal', 'c')
+project ('practica 2 PAV detección vocal', 'c')
 
-exe = 'vad'
+exe= 'vad'
 
-src = ['src/main_vad.c', 'src/vad.c']
+src= ['src/main_vad.c', 'src/vad.c']
 
-lib = ['-lm', '-lsndfile']
+lib= ['-lm', '-lsndfile']
 
-executable (exe, sources: src, link_args : lib)
+executable (exe, sources: src, link_args : lib )
