@@ -141,11 +141,13 @@ Ejercicios
 
 	* Incremento del nivel potencia en dB, respecto al nivel correspondiente al silencio inicial, para
 	  estar seguros de que un segmento de señal se corresponde con voz.
+Observando la gráfica, el nivel de potencia del silencio inicial se mantiene alrededor de –45 dB. Para identificar de manera fiable un segmento como voz, consideramos adecuado exigir un incremento de al menos 10–15 dB sobre ese nivel de referencia. De este modo, cualquier tramo cuya potencia supere aproximadamente –30 dB puede clasificarse sin ambigüedad como voz. Sabemos esto ya que el silencio tiene valores muy bajos entre –40 dB y –55 dB en cambio la voz esta entre -20 dB y -10 dB.
 
 	* Duración mínima razonable de los segmentos de voz y silencio.
+A partir de la observación de la señal, creemos que una duración mínima razonable para los segmentos de voz es de 100–150 ms, ya que duraciones inferiores suelen corresponder a transiciones rápidas o ruidos. Por otro lado, para los segmentos de silencio, una duración mínima de 200–300 ms es apropiada, ya que pausas más cortas corresponden a micro-pausas propias del habla y no a silencios reales.
 
 	* ¿Es capaz de sacar alguna conclusión a partir de la evolución de la tasa de cruces por cero?
-
+Después de analizar la evolución de la tasa de cruces por cero, podemos distinguir entre voz y silencio. Generalmente, los valores bajos son silencios o pausas, los valores altos son consonantes fricativas o ruidos distintivos y los valores medios, al no ser ni una ni otra se categorizan como vocales. Este análisis nos sirve para identificar la actividad vocal y para poder diferenciar partes ruidosas dentro del habla
 
 ### Desarrollo del detector de actividad vocal
 
