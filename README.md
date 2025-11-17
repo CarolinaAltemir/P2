@@ -162,7 +162,18 @@ Ejercicios
 - Inserte una gráfica en la que se vea con claridad la señal temporal, el etiquetado manual y la detección
   automática conseguida para el fichero grabado al efecto. 
 
+En la primera parte de la gráfica puede verse la forma de onda del fichero de audio, donde se aprecian claramente los fragmentos de voz y los intervalos de silencio. El etiquetado manual, elaborado en Wavesurfer, sirve como referencia para identificar con precisión los segmentos donde realmente hay actividad vocal. En la gráfica generada en Python, la señal correspondiente al etiquetado manual, esta información se muestra en la figura incluida en el Ejercicio 1, donde se visualiza de forma completa la anotación manual.
+En la tercera parte de la figura se representa la detección automática realizada por el VAD. En este caso, el detector tiende a generar una activación más fragmentada: aparecen múltiples segmentos cortos de detección y numerosos cambios rápidos entre voz y silencio. Esto se debe a que el algoritmo empleado se basa principalmente en la energía de la señal por ventanas cortas, con un umbral fijo, lo que provoca:
+* Sobredetección en ciertos momentos (falsos positivos breves), debida a picos de energía o ruidos puntuales.
+* Cortes internos dentro de segmentos reales de voz, especialmente en consonantes o partes de baja energía.
+* Ausencia de suavizado temporal y de duraciones mínimas, lo que hace que el resultado sea más irregular que el etiquetado manual.
+
+<img width="814" height="452" alt="imagen" src="https://github.com/user-attachments/assets/afe95853-b64a-48c4-a7cf-e3b7bfc2c413" />
+
+
 - Explique, si existen. las discrepancias entre el etiquetado manual y la detección automática.
+
+  * Comparando esta detección automática con el etiquetado manual del Ejercicio 1, se observa que el manual agrupa mejor los tramos de voz de forma continua, mientras que el VAD automático produce un patrón más fragmentado e inestable. Esto es esperable, ya que la aproximación empleada utiliza únicamente parámetros básicos como la energía, sin otros criterios más avanzados que mejorarían la robustez del detector.
 
 - Evalúe los resultados sobre la base de datos `db.v4` con el script `vad_evaluation.pl` e inserte a 
   continuación las tasas de sensibilidad (*recall*) y precisión para el conjunto de la base de datos (sólo
